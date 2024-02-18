@@ -1,0 +1,73 @@
+.flight-card{
+    margin-top: -150px;
+    width: 80%;
+    margin-left: 10%;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+
+}
+.flight-result{
+    margin-top:10px;
+    width: 80%; 
+    margin-left: 10%;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.flight-card .ant-card-body{
+    margin-bottom: 30px;
+    
+}
+
+.flight-imag{
+    position: absolute;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.search-flight{
+    position: absolute;
+    right: 10px;
+    margin-top: 13px;
+    
+}
+.stop-card{
+    margin-left: 26px;
+    margin-top: 29px;
+    text-align: center;
+
+}
+.destination-time{
+    padding-left: 74px;
+    width:145px;
+}
+.vertical-line {
+    border-left: 1px solid black;
+    margin-left:30px;
+  }
+.book-flight{
+    margin-left: 30px;
+    margin-top: 25px;
+}
+.flight-detail{
+    margin-top: 34px;
+}
+.reference-number{
+    color: #e72626;
+    font-family: serif;
+}
+.ant-layout-footer{
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    
+}
+.footer-space{
+    height:100px;
+}
+.track-flight{
+    position: absolute;
+    left: 25px;
+    padding-top: 27px;
+
+}
