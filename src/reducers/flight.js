@@ -23,12 +23,12 @@ const FlightReducer = (state = initialState, action) => {
 				bookingStatus:null,
 				passengerRecord:null,
 				trackFlightRecord:null,
-				trackMessage:null
+				trackMessage:null,
+				loading:false,
 			};
 		case actionTypes.GET_FLIGHT_DESTINATION_LIST_SUCCESS:
 			return {
 				...state,
-				
 				destinationData: action.data
 			};
 		case actionTypes.STORE_SEARCH_FLIGHT_RECORD:
@@ -68,6 +68,11 @@ const FlightReducer = (state = initialState, action) => {
 			return {
 				...state,
 				loading:false
+		};
+		case actionTypes.SEARCH_FLIGHT_BY_REFERENCE:
+			return {
+				...state,
+				loading:true
 		};
 		case actionTypes.SEARCH_FLIGHT_BY_REFERENCE_SUCCESS:
 			return {

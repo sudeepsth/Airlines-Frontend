@@ -71,3 +71,20 @@
     padding-top: 27px;
 
 }
+.heading-title {
+    position: absolute;
+    top: 150px;
+    left: 100px;
+    font-family: "Poppins", sans-serif;
+    font-size: 2.5rem;
+    color: white;
+    text-align: center;
+    padding: 1rem 2rem;
+    border-radius: 5px;
+    text-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+  }
+  .content {
+    padding: 50px;
+    background: rgba(0, 0, 0, 0.05);
+    border-radius: 4px;
+  }

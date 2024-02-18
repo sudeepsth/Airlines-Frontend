@@ -1,13 +1,14 @@
-import React, { useEffect, useState } from "react";
-import homepageImage from "../assets/flight.jpg"
-import { Card, Row, Col, Input, Button, Form, Tag,Alert } from 'antd';
+import React, { useState } from "react";
+import { Card, Row, Col, Input, Button, Form, Tag,Alert,Spin } from 'antd';
 import { SearchFlightByReference } from "../actions/flightAction";
 import { useDispatch, useSelector } from "react-redux";
+import Header from "../components/Header";
 
 const TrackFlight = () => {
     const dispatch = useDispatch();
     const trackRecord = useSelector((state) => state.flightList.trackFlightRecord);
     const trackMessage = useSelector((state) => state.flightList.trackMessage);
+    const loading = useSelector((state) => state.flightList.loading);
     const [form] = Form.useForm();
 
     const onCheck = async (e) => {
@@ -51,8 +52,7 @@ const TrackFlight = () => {
  
     return (
         <section>
-            <div className="flight-image" style={{ height: '460px', width: '100vw', backgroundImage: `url(${homepageImage})`, backgroundSize: 'cover' }}>
-              </div>
+            <Header />
                 <Form layout="vertical" form={form}>
                     <Card className="flight-card">
                         <h2>Search Flight Record</h2>
@@ -82,15 +82,19 @@ const TrackFlight = () => {
                         </Row>
                     </Card>
                 </Form>
-                {trackRecord && trackRecord !=null && trackMessage=="Found" && (
+                {loading && (
+                   <Spin tip="Loading">
+                    <div className="content" />
+                 </Spin>
+                )}
+                {!loading && trackRecord && trackRecord !=null && trackMessage=="Found" && (
                     <>
                     <Card className="flight-result">
                         <h2>Flight Detail:</h2>
                             <Row gutter={16}>
-                                <div>
+                            <Col className="gutter-row stop-card" xs={12} sm={12} md={4} lg={4} xl={4}>
                                     <h2>{trackRecord.airlines}</h2>
-                                </div>
-                                
+                               </Col>
                                 <div className="destination-time">
                                     <h2>{changeDateToTime(trackRecord.flight_date)}</h2>
                                     <Tag color="red">{trackRecord.from}</Tag>
@@ -132,19 +136,14 @@ const TrackFlight = () => {
                         </Col>
                     </Row>
                     </Card>
-                   
                     </>
                         
                 )}
-                { trackMessage ==="Not Found" && (
+                { !loading && trackMessage ==="Not Found" && (
                     <Card className="flight-result">
                     <Alert message="Flight record not found using that Booking Reference" type="error" />
                     </Card>
                 )}
-
-              
-
-            
 
         </section>
     );
