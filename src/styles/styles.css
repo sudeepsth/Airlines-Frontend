@@ -88,3 +88,236 @@
     background: rgba(0, 0, 0, 0.05);
     border-radius: 4px;
   }
+  .user-label {
+    font-weight: bold;
+    font-size: large;
+  }
+
+  .user-value {
+    margin-left: 10px;
+    font-size: large;
+  }
+
+  article {
+    --img-scale: 1.001;
+    --title-color: black;
+    --link-icon-translate: -20px;
+    --link-icon-opacity: 0;
+    position: relative;
+    border-radius: 16px;
+    box-shadow: none;
+    background: #fff;
+    transform-origin: center;
+    transition: all 0.4s ease-in-out;
+    overflow: hidden;
+  }
+  
+  article a::after {
+    position: absolute;
+    inset-block: 0;
+    inset-inline: 0;
+    cursor: pointer;
+    content: "";
+  }
+  
+  /* basic article elements styling */
+  article h2 {
+    margin: 0 0 18px 0;
+    font-family: "Bebas Neue", cursive;
+    font-size: 1.9rem;
+    letter-spacing: 0.06em;
+    color: var(--title-color);
+    transition: color 0.3s ease-out;
+  }
+  
+  figure {
+    margin: 0;
+    padding: 0;
+    aspect-ratio: 16 / 9;
+    overflow: hidden;
+  }
+  
+  article img {
+    max-width: 100%;
+    transform-origin: center;
+    transform: scale(var(--img-scale));
+    transition: transform 0.4s ease-in-out;
+  }
+  
+  .article-body {
+    padding: 24px;
+  }
+  
+  article a {
+    display: inline-flex;
+    align-items: center;
+    text-decoration: none;
+    color: #28666e;
+  }
+  
+  article a:focus {
+    outline: 1px dotted #28666e;
+  }
+  
+  article a .icon {
+    min-width: 24px;
+    width: 24px;
+    height: 24px;
+    margin-left: 5px;
+    transform: translateX(var(--link-icon-translate));
+    opacity: var(--link-icon-opacity);
+    transition: all 0.3s;
+  }
+  
+  article:has(:hover, :focus) {
+    --img-scale: 1.1;
+    --title-color: #28666e;
+    --link-icon-translate: 0;
+    --link-icon-opacity: 1;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 10px 36px 0px, rgba(0, 0, 0, 0.06) 0px 0px 0px 1px;
+  }
+  
+
+
+  .articles {
+    display: grid;
+    max-width: 1200px;
+    margin-inline: auto;
+    padding-inline: 24px;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 24px;
+    padding-top:50px;
+  }
+  
+  .sr-only:not(:focus):not(:active) {
+    clip: rect(0 0 0 0); 
+    clip-path: inset(50%);
+    height: 1px;
+    overflow: hidden;
+    position: absolute;
+    white-space: nowrap; 
+    width: 1px;
+  }
+  
+
+  * {
+    box-sizing: border-box;
+}
+
+.ticket-system {
+    max-width: 385px;
+}
+
+.ticket-system .receipts-wrapper {
+    overflow: hidden;
+    margin-top: -10px;
+    padding-bottom: 10px;
+}
+.ticket-system .receipts {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    transform: translateY(-510px);
+    animation-duration: 2.5s;
+    animation-delay: 500ms;
+    animation-name: print;
+    animation-fill-mode: forwards;
+}
+.ticket-system .receipts .receipt {
+    padding: 25px 30px;
+    text-align: left;
+    min-height: 200px;
+    width: 88%;
+    background-color: #fff;
+    border-radius: 10px 10px 20px 20px;
+    box-shadow: 1px 3px 8px 3px rgba(0, 0, 0, 0.2);
+}
+.ticket-system .receipts .receipt .airliner-logo {
+    max-width: 80px;
+}
+.ticket-system .receipts .receipt .route {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 30px 0;
+}
+.ticket-system .receipts .receipt .route .plane-icon {
+    width: 30px;
+    height: 30px;
+    transform: rotate(90deg);
+}
+.ticket-system .receipts .receipt .route h2 {
+    font-weight: 300;
+    font-size: 2.2em;
+    margin: 0;
+}
+.ticket-system .receipts .receipt .details {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+.ticket-system .receipts .receipt .details .item {
+    display: flex;
+    flex-direction: column;
+    min-width: 70px;
+}
+.ticket-system .receipts .receipt .details .item span {
+    font-size: 0.8em;
+    color: rgba(28, 28, 28, .7);
+    font-weight: 500;
+}
+.ticket-system .receipts .receipt .details .item h3 {
+    margin-top: 10px;
+    margin-bottom: 25px;
+}
+.ticket-system .receipts .receipt.qr-code {
+    height: 110px;
+    min-height: unset;
+    position: relative;
+    border-radius: 20px 20px 10px 10px;
+    display: flex;
+    align-items: center;
+}
+.ticket-system .receipts .receipt.qr-code::before {
+    content: '';
+    background: linear-gradient(to right, #fff 50%, #3f32e5 50%);
+    background-size: 22px 4px, 100% 4px;
+    height: 4px;
+    width: 90%;
+    display: block;
+    left: 0;
+    right: 0;
+    top: -1px;
+    position: absolute;
+    margin: auto;
+}
+.ticket-system .receipts .receipt.qr-code .qr {
+    width: 70px;
+    height: 70px;
+}
+.ticket-system .receipts .receipt.qr-code .description {
+    margin-left: 20px;
+}
+.ticket-system .receipts .receipt.qr-code .description h2 {
+    margin: 0 0 5px 0;
+    font-weight: 500;
+}
+.ticket-system .receipts .receipt.qr-code .description p {
+    margin: 0;
+    font-weight: 400;
+}
+@keyframes print {
+    0% {
+        transform: translateY(-510px);
+   }
+    35% {
+        transform: translateY(-395px);
+   }
+    70% {
+        transform: translateY(-140px);
+   }
+    100% {
+        transform: translateY(0);
+   }
+}

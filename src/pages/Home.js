@@ -4,7 +4,9 @@ import { GetFlightDestination, SearchFlightDetail, SearchFlightRecord } from "..
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from 'react-router-dom';
 import Header from "../components/Header";
-
+import ExperienceImage from "../assets/experience.avif";
+import TravelImage from "../assets/travel.webp";
+import CityImage from "../assets/london.webp"
 const Home = () => {
     const dispatch = useDispatch();
     const navigate = useNavigate();
@@ -97,7 +99,7 @@ const Home = () => {
             <Header />
             <Form layout="vertical" form={form}>
                 <Card className="flight-card">
-                    <h2>Book a flight</h2>
+                    <h2>Book a flight</h2><h5> Available Flight: London - Manchester (2024-02-25)</h5>
                     <Row gutter={16}>
                         <Col className="gutter-row" span={6} xs={12} sm={12} md={8} lg={8} xl={6}>
                             <Form.Item
@@ -172,10 +174,10 @@ const Home = () => {
                 </Card>
             </Form>
             {loading && (
-                   <Spin tip="Loading">
+                <Spin tip="Loading">
                     <div className="content" />
-                 </Spin>
-                )}
+                </Spin>
+            )}
             {!loading && searchFlights && searchFlights.map((item) => {
                 return (
                     <Card className="flight-result" key={item.id}>
@@ -214,6 +216,57 @@ const Home = () => {
                 </Card>
             )
             }
+            {searchFlights?.length == 0 && (
+                <div className="plan-trip">
+                    <section className="articles">
+                        <article>
+                            <div className="article-wrapper">
+                                <figure>
+                                    <img src={CityImage} alt="" />
+                                </figure>
+                                <div className="article-body">
+                                    <h2>Explore Our Destination</h2>
+                                  
+                                    <a href="#" className="read-more">
+                                        Read more <span className="sr-only">about this is some title</span>
+                                    </a>
+                                </div>
+                            </div>
+                        </article>
+                        <article>
+
+                            <div className="article-wrapper">
+                                <figure>
+                                    <img src={ExperienceImage} alt="" />
+                                </figure>
+                                <div className="article-body">
+                                    <h2>Elevate Your Experience</h2>
+                                  
+                                    <a href="#" className="read-more">
+                                        Read more <span className="sr-only">about this is some title</span>
+
+                                    </a>
+                                </div>
+                            </div>
+                        </article>
+                        <article>
+
+                            <div className="article-wrapper">
+                                <figure>
+                                    <img src={TravelImage} alt="" />
+                                </figure>
+                                <div className="article-body">
+                                    <h2>Travel Requirements</h2>
+                                    <a href="#" className="read-more">
+                                        Read more <span className="sr-only">about this is some title</span>
+
+                                    </a>
+                                </div>
+                            </div>
+                        </article>
+                    </section>
+                </div>
+            )}
         </section>
     );
 };
