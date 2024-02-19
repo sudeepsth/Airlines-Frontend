@@ -52,7 +52,7 @@ const BookFinalize = () => {
                                 <h3>Email:{passengerRecord?.email} </h3>
                             </Col>
                             <Col className="gutter-row" span={6} xs={12} sm={12} md={12} lg={12} xl={12}>
-                                <h3>Email:{passengerRecord?.phone_number} </h3>
+                                <h3>Phone Number:{passengerRecord?.phone_number} </h3>
                             </Col>
                         </Row>
                         <Button onClick={() => navigate('/track-flight')}>Track Flight</Button>
