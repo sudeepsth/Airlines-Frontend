@@ -19,8 +19,7 @@
     
 }
 
-.flight-imag{
-    position: absolute;
+.flight-image{
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
@@ -80,7 +79,7 @@
     color: white;
     text-align: center;
     padding: 1rem 2rem;
-    border-radius: 5px;
+    border-radius: 10px;
     text-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
   }
   .content {
@@ -321,3 +320,37 @@
         transform: translateY(0);
    }
 }
+.plane-image{
+    width:150px;
+    margin-top:100px;
+
+}
+.light {
+    width: 10px;
+    height: 10px;
+    background: red;
+    border-radius: 50%;
+       bottom: 295px;
+    position: absolute;
+    z-index: 10;
+    left: 20px;
+    animation: light 800ms ease-in-out 0s infinite alternate;
+  }
+  .cloud {
+    position: absolute;
+    top: 0px;
+    right: -500px;
+    opacity: .8;
+     animation: cloud 10s linear 0s infinite reverse;
+    z-index: 99;
+  }
+  @keyframes light {
+    0% {opacity: 0;}
+    100% {opacity: 1;}
+  }
+  @keyframes cloud {
+    from {right:-500px;}
+    to {right: 102%;}
+  }
+
+  
