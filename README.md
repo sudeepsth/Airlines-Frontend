@@ -1,10 +1,5 @@
 # Getting Started with Flight booking
 
-## Available Scripts
-
-In the project directory, you can run:
-
-###
 
 - Install Dependencies:
     - Node.js and NPM
